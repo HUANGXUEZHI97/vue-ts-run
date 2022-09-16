@@ -1,12 +1,35 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <router-view/> -->
+    <button @click="increment">+</button>
+    {{count}}
+    <button @click="decrement">-</button>
   </div>
 </template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+
+// 注册Components
+@Component
+export default class App extends Vue {
+  // class属性即是组件的data
+  count = 0
+
+  // class的方法即是组件的methods
+  increment () {
+    this.count++
+  }
+
+  decrement () {
+    this.count--
+  }
+}
+</script>
 
 <style>
 #app {
